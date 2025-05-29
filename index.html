@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Você foi pego!</title>
   <style>
     body {
       margin: 0; padding: 0; overflow: hidden;
       background: black;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       color: white;
       font-family: Arial, sans-serif;
-      font-size: 2rem;
-      text-align: center;
     }
     img {
       max-width: 100vw;
-      max-height: 100vh;
+      max-height: 80vh;
+      display: block;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: #ff4444;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #cc0000;
     }
   </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/R5b4TbI.gif" alt="Susto!">
-  <audio autoplay>
-    <source src="https://actions.google.com/sounds/v1/horror/scream_short.ogg" type="audio/ogg">
-  </audio>
+  <img src="https://raw.githubusercontent.com/berola777/assets/main/susto.gif" alt="Susto!" />
+  <button id="playSound">Clique para ouvir o susto!</button>
+  <audio id="audio" src="https://raw.githubusercontent.com/berola777/assets/main/susto-sound.ogg"></audio>
+
+  <script>
+    const btn = document.getElementById('playSound');
+    const audio = document.getElementById('audio');
+
+    btn.addEventListener('click', () => {
+      audio.play();
+      btn.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
